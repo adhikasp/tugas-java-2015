@@ -6,7 +6,7 @@ public class ParkSpot
 	private String type = "Car";
 	private Vehicle vehicle;
 
-	ParkSpot(int number)
+	public ParkSpot(int number)
 	{
 		this.number = number;
 	}
@@ -31,6 +31,6 @@ public class ParkSpot
 
 	public void setVehicle(Vehicle vehicle)
 	{
-		this.vehicle = vehicle
+		this.vehicle = vehicle;
 	}
 }

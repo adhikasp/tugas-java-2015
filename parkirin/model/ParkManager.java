@@ -1,16 +1,23 @@
 package parkirin.model;
 
+import java.util.ArrayList;
+
 public class ParkManager
 {
-	private ArrayList parkingSpots;
+	private ParkSpot[] parkingSpots;
 	private int current = 0;
 
-	ParkManager(int parkSize)
+	public ParkManager(int parkSize)
 	{
-		parkingSpots = new ArrayList();
+		parkingSpots = new ParkSpot[parkSize];
 		for (int i = 0; i < parkSize; i++) {
-			parkingSpots.add(new ParkSpot(i));
+			parkingSpots[i] = new ParkSpot(i+1);
 		}
+	}
+
+	public ParkSpot[] getAll()
+	{
+		return parkingSpots;
 	}
 
 	public int getCurrentIndex()
@@ -25,7 +32,7 @@ public class ParkManager
 
 	public void next()
 	{
-		if (current + 1 < parkingSpots.size()) {
+		if (current + 1 < parkingSpots.length) {
 			current++;
 		}
 	}

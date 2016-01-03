@@ -1,14 +1,14 @@
 package parkirin.controller;
 
-import parkirin.model.*
-import parkirin.view.*
+import parkirin.model.*;
+import parkirin.view.*;
 
 public class MainController
 {
 	ParkManager pm;
 	ParkirinView pv;
 
-	MainController()
+	public MainController()
 	{
 		// TODO menambahkan fungsi loading
 		pm = new ParkManager(10);
@@ -18,36 +18,47 @@ public class MainController
 	public void start()
 	{
 		pv.landing();
-		pv.show(pm.getCurrent);
+		pv.show(pm.getCurrent());
 		pv.menu();
 	}
 
 	public void index()
 	{
-		pv.index();
+		pv.index(pm);
 		pv.menu();
 	}
 
 	public void viewNext()
 	{
 		pm.next();
-		pv.show(pm.getCurrent);
+		pv.show(pm.getCurrent());
 		pv.menu();
 	}
 
 	public void viewPrev()
 	{
 		pm.prev();
-		pv.show(pm.getCurrent);
+		pv.show(pm.getCurrent());
 		pv.menu();
 	}
 
-	public void updateSpot()
+	public void update()
 	{
 		// Input function
-		ParkSpot ps = new ParkSpot(pm.getCurrentIndex);
+		ParkSpot ps = pv.update(pm.getCurrentIndex());
 
 		pm.update(ps);
 		pv.menu();
+	}
+
+	public void menu()
+	{
+		pv.menu();
+	}
+
+	public void exit()
+	{
+		pv.exit();
+		System.exit(0);
 	}
 }

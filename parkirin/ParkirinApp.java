@@ -5,12 +5,12 @@ import parkirin.controller.MainController;
 public class ParkirinApp
 {
 	private MainController pc;
-	private Scanner inputScanner;
+	private java.util.Scanner inputScanner;
 
 	ParkirinApp()
 	{
 		pc = new MainController();
-		inputScanner = new Scanner(System.in);
+		inputScanner = new java.util.Scanner(System.in);
 	}
 
 	public void start()
@@ -24,10 +24,10 @@ public class ParkirinApp
 
 	private void handleMenuChoice()
 	{
-		command = inputScanner.next();
-		String[] validCommand = {"n", "p", "u", "a"};
+		String command = inputScanner.next();
+		String[] validCommand = {"n", "p", "u", "a", "x"};
 
-		commandIsValid = Array.asList(validCommand).contains(command);
+		Boolean commandIsValid = java.util.Arrays.asList(validCommand).contains(command);
 
 		if (commandIsValid) {
 			switch (command) {
@@ -45,12 +45,12 @@ public class ParkirinApp
 					break;
                 case "x":
                     pc.exit();
-                    exitProgram();
-                    break;
-                default:
-                    pc.unknownCommand();
                     break;
 			}
+		}
+		else {
+			System.out.println("Pilihan menu tidak valid");
+			pc.menu();
 		}
 	}
 
