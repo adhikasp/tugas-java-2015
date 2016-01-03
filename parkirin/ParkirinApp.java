@@ -43,6 +43,13 @@ public class ParkirinApp
 				case "a":
 					pc.index();
 					break;
+                case "x":
+                    pc.exit();
+                    exitProgram();
+                    break;
+                default:
+                    pc.unknownCommand();
+                    break;
 			}
 		}
 	}
