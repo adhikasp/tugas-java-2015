@@ -39,7 +39,7 @@ public class ParkManager
 
 	public void prev()
 	{
-		if (current - 1 > 0) {
+		if (current - 1 >= 0) {
 			current--;
 		}
 	}

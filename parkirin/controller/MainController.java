@@ -24,7 +24,7 @@ public class MainController
 
 	public void index()
 	{
-		pv.index(pm);
+		pv.index(pm.getAll());
 		pv.menu();
 	}
 
@@ -45,7 +45,7 @@ public class MainController
 	public void update()
 	{
 		// Input function
-		ParkSpot ps = pv.update(pm.getCurrentIndex());
+		ParkSpot ps = pv.update(pm.getCurrent());
 
 		pm.update(ps);
 		pv.menu();

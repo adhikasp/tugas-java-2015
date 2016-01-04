@@ -6,13 +6,13 @@ public class Vehicle
 	private String ownerName;
 	private String type = "Car";
 
-	Vehicle(String ownerName, String licensePlate)
+	public Vehicle(String ownerName, String licensePlate)
 	{
 		this.ownerName    = ownerName;
 		this.licensePlate = licensePlate;
 	}
 
-	public String getLicensePlate()
+	public String getLicense()
 	{
 		return licensePlate;
 	}
