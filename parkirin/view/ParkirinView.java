@@ -19,6 +19,13 @@ public class ParkirinView
 	public void show(ParkSpot ps)
 	{
 		System.out.println("Melihat lahan parkir ke " + ps.getLocation());
+		if (ps.isEmpty()) {
+			System.out.println("Lahan ini kosong.");
+		}
+		else {
+			System.out.println("Pemilik    : " + ps.getVehicle().getOwner());
+			System.out.println("Plat nomor : " + ps.getVehicle().getLicense());
+		}
 	}
 
 	public void menu()
@@ -43,9 +50,9 @@ public class ParkirinView
 
 	public ParkSpot update(ParkSpot spot)
 	{
-		System.out.println("Mengedit lahan parkir");
+		System.out.println("Lahan parkir " + spot.getLocation());
 		if (spot.isEmpty()) {
-			System.out.println("Mobil masuk");
+			System.out.println("Checkin kendaraan");
 			System.out.print("Plat nomor : ");
 			String plate = inputScanner.nextLine();
 			System.out.print("Pemilik : ");
@@ -54,6 +61,8 @@ public class ParkirinView
 			spot.setVehicle(new Vehicle(owner, plate));
 		}
 		else {
+			System.out.println("Checkout kendaraan");
+			System.out.println("Biaya parkir : Rp " + spot.getBill() + ",00");
 			spot.setVehicle(null);
 		}
 		return spot;
