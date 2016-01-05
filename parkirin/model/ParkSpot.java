@@ -8,7 +8,15 @@ public class ParkSpot
 
 	public ParkSpot(int number)
 	{
+		this(number, null, null);
+	}
+
+	public ParkSpot(int number, String owner, String plate)
+	{
 		this.number = number;
+		if (owner != null) {
+			this.vehicle = new Vehicle(owner, plate);
+		}
 	}
 
 	public int getLocation()

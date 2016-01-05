@@ -58,6 +58,7 @@ public class MainController
 
 	public void exit()
 	{
+		pm.save();
 		pv.exit();
 		System.exit(0);
 	}
